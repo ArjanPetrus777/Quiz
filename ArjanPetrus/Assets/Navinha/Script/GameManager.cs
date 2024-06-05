@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -45,6 +46,11 @@ public class GameManager : MonoBehaviour
         Instantiate(objetoAlan, geradoresAlan[rnd].position, Quaternion.identity);
         yield return new WaitForSeconds(taxaAlan);
         StartCoroutine(GerarAlan());
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene(0);
     }
 
 }
