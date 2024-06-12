@@ -154,22 +154,25 @@ public class Player : MonoBehaviour
                 GameManager.Instancia.GameOver();
             }
         }
-        if (collision.gameObject.GetComponent<PowerUp>().tipo == 0)
+        if (collision.CompareTag("PowerUp"))
         {
-            powerUp1Ativo = true;
-            Destroy(collision.gameObject);
-        }
-        if (collision.gameObject.GetComponent<PowerUp>().tipo == 1)
-        {
-            powerUp2++;
-            podePower2 = true;
-            Destroy(collision.gameObject);
-        }
-        if (collision.gameObject.GetComponent<PowerUp>().tipo == 2)
-        {
-            vidaMaxima++;
-            vidaAtual = vidaMaxima;
-            Destroy(collision.gameObject);
+            if (collision.gameObject.GetComponent<PowerUp>().tipo == 0)
+            {
+                powerUp1Ativo = true;
+                Destroy(collision.gameObject);
+            }
+            if (collision.gameObject.GetComponent<PowerUp>().tipo == 1)
+            {
+                powerUp2++;
+                podePower2 = true;
+                Destroy(collision.gameObject);
+            }
+            if (collision.gameObject.GetComponent<PowerUp>().tipo == 2)
+            {
+                vidaMaxima++;
+                vidaAtual = vidaMaxima;
+                Destroy(collision.gameObject);
+            }
         }
     }
 
